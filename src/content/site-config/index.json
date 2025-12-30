@@ -1,0 +1,60 @@
+[
+  {
+    "id": "main",
+    "brandName": "meilleur abonnement iptv",
+    "siteUrl": "https://meilleur-abonnement-iptv.pages.dev",
+    "focusKeyword": "IPTV",
+    "country": "United States",
+    "countryCode": "US",
+    "locale": "en-US",
+    "currency": "USD",
+    "currencySymbol": "$",
+    "supportEmail": "streamonlinever@gmail.com",
+    "guaranteeDays": 7,
+    "primaryCtaText": "Get Started Now",
+    "secondaryCtaText": "Learn More",
+    "trustPoints": [
+      "24/7 Customer Support",
+      "Instant Activation",
+      "No Contract Required",
+      "7-Day Money Back Guarantee"
+    ],
+    "localContext": {
+      "popularDevices": [
+        "Smart TV",
+        "Fire Stick",
+        "Android Box",
+        "iOS",
+        "Android"
+      ],
+      "popularUseCases": [
+        "Live Sports",
+        "Movies",
+        "TV Shows",
+        "International Channels"
+      ],
+      "paymentMethods": [
+        "Credit Card",
+        "PayPal",
+        "Crypto"
+      ]
+    },
+    "channelCount": 55000,
+    "vodCount": 90000,
+    "countryCount": 100,
+    "primaryColor": "#3b82f6",
+    "secondaryColor": "#8b5cf6",
+    "templateId": "dark",
+    "defaultLanguage": "fr",
+    "enabledLanguages": [
+      "fr"
+    ],
+    "responseTime": "under 2 hours",
+    "organizationDescription": "Optez pour 'meilleur abonnement IPTV' et profitez d'une qualité de streaming exceptionnelle, des chaînes variées et un service fiable, parfait pour les amateurs de télévision en France.",
+    "paymentSettings": {
+      "buttonText": "Acheter Maintenant",
+      "paymentType": "paygate",
+      "paygateWalletAddress": "0x1e2c390ae5602f3662332061cae6c5658cd54e22"
+    }
+  }
+]

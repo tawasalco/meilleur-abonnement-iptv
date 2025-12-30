@@ -1,0 +1,61 @@
+[
+  {
+    "id": "main",
+    "brandName": "meilleur abonnement iptv",
+    "tagline": "Découvrez l'expérience de streaming ultime avec le meilleur abonnement IPTV!",
+    "description": "Optez pour 'meilleur abonnement IPTV' et profitez d'une qualité de streaming exceptionnelle, des chaînes variées et un service fiable, parfait pour les amateurs de télévision en France.",
+    "channelCount": 55000,
+    "vodCount": 90000,
+    "supportEmail": "streamonlinever@gmail.com",
+    "primaryColor": "#3B82F6",
+    "secondaryColor": "#1E40AF",
+    "siteUrl": "https://meilleur-abonnement-iptv.pages.dev",
+    "features": [
+      {
+        "title": "Accès à plus de 1000 chaînes",
+        "description": "Avec notre meilleur abonnement IPTV, vous accédez à un large éventail de plus de 1000 chaînes de télévision locales et internationales pour satisfaire tous les goûts.",
+        "icon": "Tv"
+      },
+      {
+        "title": "Qualité HD et 4K",
+        "description": "Profitez d'une qualité d'image éblouissante avec des options de streaming en HD et 4K, vous permettant de vivre chaque moment télévisé avec une clarté remarquable.",
+        "icon": "Star"
+      },
+      {
+        "title": "VOD illimitée",
+        "description": "Accédez à notre vaste bibliothèque de VOD illimitée, remplie des derniers films et séries à succès, vous garantissant un divertissement non-stop à portée de main.",
+        "icon": "Film"
+      },
+      {
+        "title": "Compatibilité multi-appareils",
+        "description": "Notre service IPTV est compatible avec une variété d'appareils, vous permettant de regarder vos émissions préférées où que vous soyez, quand vous le souhaitez.",
+        "icon": "Globe"
+      },
+      {
+        "title": "Mise à jour régulière des chaînes",
+        "description": "Nous assurons une mise à jour régulière de notre liste de chaînes pour inclure les dernières nouveautés et vous offrir un accès continu aux contenus actuels.",
+        "icon": "Zap"
+      },
+      {
+        "title": "Service client réactif",
+        "description": "Notre équipe de support est à votre disposition 24/7 pour répondre à toutes vos questions et vous aider à tirer le meilleur parti de votre abonnement IPTV.",
+        "icon": "Users"
+      },
+      {
+        "title": "Sécurité accrue",
+        "description": "Avec notre meilleur abonnement IPTV, bénéficiez d'une sécurité renforcée pour protéger vos informations personnelles et garantir une expérience de streaming sans tracas.",
+        "icon": "Shield"
+      },
+      {
+        "title": "Tarification flexible",
+        "description": "Choisissez parmi nos options d'abonnement flexibles pour trouver un plan qui s'adapte parfaitement à votre style de vie et à votre budget.",
+        "icon": "CreditCard"
+      }
+    ],
+    "paymentSettings": {
+      "buttonText": "Acheter Maintenant",
+      "paymentType": "paygate",
+      "paygateWalletAddress": "0x1e2c390ae5602f3662332061cae6c5658cd54e22"
+    }
+  }
+]

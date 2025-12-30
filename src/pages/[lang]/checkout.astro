@@ -1,0 +1,76 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SEO from '../../components/SEO.astro';
+import CheckoutForm from '../../components/CheckoutForm';
+import { generateBreadcrumbSchema } from '../../utils/schema';
+import { LANGUAGES, getUITranslations, defaultLanguage, type LanguageCode } from '../../utils/i18n';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const langs = Object.keys(LANGUAGES).filter(lang => lang !== defaultLanguage);
+  return langs.map(lang => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params;
+const currentLang = (lang || defaultLanguage) as LanguageCode;
+const t = getUITranslations(currentLang);
+
+const serviceInfoEntries = await getCollection('service-info');
+const serviceInfo = serviceInfoEntries[0];
+const data = serviceInfo?.data || {};
+const baseUrl = data.siteUrl || Astro.url.origin;
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: t.nav.home || 'Home', url: baseUrl },
+  { name: t.checkout?.title || 'Checkout', url: `${baseUrl}/${currentLang}/checkout` },
+]);
+---
+
+<BaseLayout currentLang={currentLang}>
+  <SEO
+    slot="head"
+    title={`${t.checkout?.title || 'Checkout'} - ${data.brandName}`}
+    description={`Complete your ${data.brandName} subscription purchase.`}
+    canonicalURL={`${baseUrl}/${currentLang}/checkout`}
+    schema={[breadcrumbSchema]}
+    languages={Object.fromEntries(
+      Object.keys(LANGUAGES)
+        .filter(l => l !== currentLang)
+        .map(l => [l, l === defaultLanguage ? `${baseUrl}/checkout` : `${baseUrl}/${l}/checkout`])
+    )}
+  />
+
+  <section class="py-20 bg-gradient-to-b from-background to-muted/30">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        {t.checkout?.title || 'Checkout'}
+      </h1>
+      <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+        {t.checkout?.subtitle || 'Complete your purchase securely.'}
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container mx-auto px-4 max-w-2xl">
+      <CheckoutForm
+        client:load
+        brandName={data.brandName || 'IPTV Service'}
+        primaryColor={data.primaryColor}
+        paymentSettings={data.paymentSettings}
+        baseUrl={baseUrl}
+        translations={{
+          title: t.checkout?.formTitle,
+          emailLabel: t.checkout?.emailLabel,
+          planLabel: t.checkout?.planLabel,
+          submitButton: t.checkout?.submitButton,
+          securePayment: t.checkout?.securePayment,
+        }}
+      />
+    </div>
+  </section>
+</BaseLayout>

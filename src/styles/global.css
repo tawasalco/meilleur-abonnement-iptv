@@ -1,0 +1,228 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #3b82f6;
+  --color-primary-rgb: 59 130 246;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #8b5cf6;
+  --color-secondary-rgb: 139 92 246;
+  --color-secondary-foreground: #ffffff;
+  --color-background: #0a0a0f;
+  --color-foreground: #f0f0f5;
+  --color-muted: #16161e;
+  --color-muted-foreground: #9ca3af;
+  --color-accent: #1e1e28;
+  --color-accent-foreground: #f0f0f5;
+  --color-card: #12121a;
+  --color-card-foreground: #f0f0f5;
+  --color-border: #2a2a3a;
+  --color-ring: #3b82f6;
+  --hero-gradient: linear-gradient(180deg, #0a0a0f 0%, #12121a 50%, #0a0a0f 100%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .hero-section {
+    @apply relative overflow-hidden py-28 lg:py-40;
+    background: var(--hero-gradient);
+  }
+  
+  .hero-section::before {
+    content: '';
+    @apply absolute inset-0;
+    background: radial-gradient(ellipse at center, color-mix(in srgb, var(--color-primary) 8%, transparent) 0%, transparent 70%);
+  }
+  
+  .hero-section::after {
+    content: '';
+    @apply absolute inset-0;
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  
+  .hero-title {
+    @apply text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl;
+  }
+  
+  .hero-subtitle {
+    @apply mt-8 text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed;
+  }
+  
+  .section-container {
+    @apply py-20 lg:py-32;
+  }
+  
+  .card-modern {
+    @apply bg-card rounded-2xl border border-border p-8;
+    box-shadow: 0 0 40px rgba(0,0,0,0.3);
+    transition: all 0.4s ease;
+  }
+  
+  .card-modern:hover {
+    border-color: color-mix(in srgb, var(--color-primary) 50%, transparent);
+    box-shadow: 0 0 60px color-mix(in srgb, var(--color-primary) 15%, transparent);
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl px-8 py-4 text-base font-semibold text-white transition-all;
+    background: linear-gradient(135deg, var(--color-primary) 0%, color-mix(in srgb, var(--color-primary) 80%, var(--color-secondary)) 100%);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 30%, transparent);
+  }
+  
+  .btn-primary:hover {
+    box-shadow: 0 0 40px color-mix(in srgb, var(--color-primary) 50%, transparent);
+    transform: translateY(-2px);
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-xl border border-border bg-card/50 px-8 py-4 text-base font-medium backdrop-blur-sm transition-all;
+  }
+  
+  .btn-secondary:hover {
+    @apply border-muted-foreground bg-card;
+  }
+  
+  .header-nav {
+    @apply sticky top-0 z-50 w-full border-b border-border/50 backdrop-blur-xl;
+    background: rgba(10, 10, 15, 0.8);
+  }
+  
+  .footer-section {
+    @apply border-t border-border bg-card/30;
+  }
+  
+  .pricing-card {
+    @apply bg-card/80 rounded-3xl border border-border p-10 backdrop-blur-sm;
+  }
+  
+  .pricing-card.featured {
+    @apply relative overflow-hidden;
+    background: linear-gradient(135deg, var(--color-card) 0%, color-mix(in srgb, var(--color-primary) 10%, var(--color-card)) 100%);
+    border: 2px solid var(--color-primary);
+  }
+  
+  .pricing-card.featured::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-1;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  }
+  
+  .feature-icon {
+    @apply h-14 w-14 rounded-2xl flex items-center justify-center;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 20%, transparent), color-mix(in srgb, var(--color-secondary) 10%, transparent));
+  }
+  
+  .feature-icon svg {
+    @apply h-7 w-7;
+    color: var(--color-primary);
+  }
+  
+  .stat-card {
+    @apply text-center p-8 rounded-2xl;
+    background: linear-gradient(135deg, var(--color-card) 0%, rgba(0,0,0,0.3) 100%);
+    border: 1px solid var(--color-border);
+  }
+  
+  .cta-section {
+    @apply py-24 text-center relative overflow-hidden;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 10%, var(--color-background)) 0%, var(--color-background) 100%);
+  }
+  
+  .cta-section::before {
+    content: '';
+    @apply absolute inset-0;
+    background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--color-primary) 20%, transparent) 0%, transparent 60%);
+  }
+  
+  .section-title {
+    @apply text-3xl lg:text-4xl font-bold text-center mb-4;
+  }
+  
+  .section-subtitle {
+    @apply text-muted-foreground text-center max-w-2xl mx-auto mb-12;
+  }
+  
+  .content-card {
+    @apply rounded-2xl p-5;
+    background: linear-gradient(135deg, var(--color-card) 0%, rgba(0,0,0,0.3) 100%);
+    border: 1px solid var(--color-border);
+  }
+  
+  .device-card {
+    @apply rounded-2xl p-6 text-center transition-all;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+  }
+  .device-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 30px color-mix(in srgb, var(--color-primary) 20%, transparent);
+  }
+  
+  .step-card {
+    @apply relative rounded-2xl p-8;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+  }
+  .step-number {
+    @apply w-14 h-14 rounded-xl flex items-center justify-center text-xl font-bold text-white mb-4;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 30%, transparent);
+  }
+  
+  .guarantee-badge {
+    @apply inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium;
+    background: color-mix(in srgb, var(--color-primary) 15%, transparent);
+    color: var(--color-primary);
+  }
+  
+  .faq-item {
+    @apply py-5;
+    border-bottom: 1px solid var(--color-border);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+  .glow-text {
+    text-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 50%, transparent);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+html {
+  scroll-behavior: smooth;
+}
